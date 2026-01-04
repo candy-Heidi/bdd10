@@ -8,7 +8,7 @@ function App() {
 
   // DB에서 데이터 가져오기
   useEffect(() => {
-    fetch('http://localhost:8000/api/stars')
+    fetch('https://bdd10th.onrender.com/api/stars')
       .then(res => res.json())
       .then(data => setStars(data));
   }, []);
