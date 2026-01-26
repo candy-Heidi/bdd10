@@ -4,14 +4,15 @@ import './App.css';
 function App() {
   const [step, setStep] = useState('START'); // START -> INTRO -> ORBIT
   const [page, setPage] = useState('MAIN');  // MAIN(메뉴), MAD(매드무비), EXP(체험), INFO(안내)
-  const [stars, setStars] = useState([]);    // 매드무비 데이터
+  const [data, setData] = useState({ movies: [], exps: [], infos: [] });    // 매드무비 데이터
   const [selectedVideo, setSelectedVideo] = useState(null);
 
   // DB에서 데이터 가져오기 (기존 주소 유지)
   useEffect(() => {
-    fetch('https://bdd10th.onrender.com/api/stars')
+    // 로컬 테스트 중이라면 주소를 확인하세요!
+    fetch('https://bdd10th.onrender.com/api/all-data') 
       .then(res => res.json())
-      .then(data => setStars(data));
+      .then(resData => setData(resData));
   }, []);
 
   // 유튜브 URL을 재생 가능한 주소로 바꿔주는 함수
