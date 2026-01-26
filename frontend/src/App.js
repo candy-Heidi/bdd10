@@ -61,7 +61,7 @@ function App() {
             <div className="orbit-scene">
               <button className="back-btn" onClick={() => setPage('MAIN')}>← 뒤로가기</button>
               <div className="sun">중심</div>
-              {stars.movies.map((star, index) => (
+              {data.movies.map((star, index) => (
                 <div 
                   key={star.id} 
                   className="star" 
