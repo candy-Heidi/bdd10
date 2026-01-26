@@ -14,35 +14,38 @@ app.add_middleware(
 )
 
 # DB 초기화 (처음 한 번만 실행)
+# main.py 수정 부분
 def init_db():
     conn = sqlite3.connect("stars.db")
     cursor = conn.cursor()
+    # 기존 movies 테이블 (매드무비용)
     cursor.execute("""
         CREATE TABLE IF NOT EXISTS movies (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT,
-            video_url TEXT,
-            orbit_speed INTEGER
+            title TEXT, video_url TEXT, orbit_speed INTEGER
         )
     """)
-    # 샘플 데이터 (데이터가 없을 때만 삽입)
-    cursor.execute("SELECT count(*) FROM movies")
-    if cursor.fetchone()[0] == 0:
-        cursor.execute("INSERT INTO movies (title, video_url, orbit_speed) VALUES (?, ?, ?)", 
-                       ("매드무비1", "https://www.w3schools.com/html/mov_bbb.mp4", 10))
-        cursor.execute("INSERT INTO movies (title, video_url, orbit_speed) VALUES (?, ?, ?)", 
-                       ("매드무비2", "https://www.w3schools.com/html/movie.mp4", 15))
+    # 2번 체험영상용 테이블
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS experiences (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT, video_url TEXT
+        )
+    """)
+    # 3번 전시장 안내용 테이블
+    cursor.execute("CREATE TABLE IF NOT EXISTS info (id INTEGER PRIMARY KEY, content TEXT)")
+    
+    # 샘플 데이터 삽입 (생략 가능)
     conn.commit()
     conn.close()
 
-init_db()
-
-@app.get("/api/stars")
-def get_stars():
+@app.get("/api/all-data")
+def get_all_data():
     conn = sqlite3.connect("stars.db")
     conn.row_factory = sqlite3.Row
     cursor = conn.cursor()
-    cursor.execute("SELECT * FROM movies")
-    rows = cursor.fetchall()
+    movies = [dict(r) for r in cursor.execute("SELECT * FROM movies").fetchall()]
+    exps = [dict(r) for r in cursor.execute("SELECT * FROM experiences").fetchall()]
+    infos = [dict(r) for r in cursor.execute("SELECT * FROM info").fetchall()]
     conn.close()
-    return [dict(row) for row in rows]
+    return {"movies": movies, "exps": exps, "infos": infos}
