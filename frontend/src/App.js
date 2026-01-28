@@ -79,10 +79,15 @@ function App() {
             <div className="info-page">
               <button className="back-btn" onClick={() => setPage('MAIN')}>← 뒤로가기</button>
               <h2>🎥 보성이 체험영상</h2>
-              <p>아래 영상을 클릭하면 재생됩니다.</p>
-              {/* 나중에 DB에 데이터가 생기면 stars.map처럼 뿌릴 수 있습니다. 지금은 예시 하나만 둘게요. */}
-              <div className="info-item" onClick={() => setSelectedVideo('https://www.youtube.com/watch?v=dQw4w9WgXcQ')}>
-                영상 제목 (체험영상 예시)
+              <p>아래 영상을 클릭하면 유튜브로 바로 연결됩니다.</p>
+              
+              {/* 테스트용 유튜브 링크입니다. 나중에 보성이 영상 URL로 바꾸세요! */}
+              <div 
+                className="info-item" 
+                style={{ cursor: 'pointer', padding: '20px', border: '1px solid gold', marginTop: '10px' }}
+                onClick={() => setSelectedVideo('https://youtu.be/zWVjOOks4kc')}
+              >
+                ▶️ 보성이 체험 영상 테스트 (클릭해보세요)
               </div>
             </div>
           )}
