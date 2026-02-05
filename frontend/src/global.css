@@ -66,3 +66,13 @@
     font-family: Pretendard, -apple-system, Roboto, Helvetica, sans-serif;
   }
 }
+
+/* 스크롤바 숨기기 (디자인용) */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE, Edge */
+  scrollbar-width: none; /* Firefox */
+}
