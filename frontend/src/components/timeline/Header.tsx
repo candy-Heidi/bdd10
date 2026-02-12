@@ -2,7 +2,10 @@ import { NavLink } from "react-router-dom";
 
 export function Header() {
   const baseClass =
-    "flex-1 flex justify-center items-center py-3 md:py-3.5 px-3 md:px-8 lg:px-14 rounded-full font-pretendard text-xs md:text-sm lg:text-base font-bold transition-colors whitespace-nowrap";
+    "flex justify-center items-center " +
+    "w-[533px] h-10 " +          // 가로 533px, 세로 40px 고정
+    "rounded-full font-pretendard text-xs md:text-sm lg:text-base font-bold " +
+    "transition-colors whitespace-nowrap";
 
   const activeClass = "bg-white/10 text-white";
   const inactiveClass = "text-white/50 hover:text-white/70";
