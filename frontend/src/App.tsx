@@ -67,20 +67,15 @@ function App() {
         {/* 2. INTRO STAGE (비디오) */}
         {stage === 'INTRO' && (
           <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black">
-            <video 
-              autoPlay 
-              onEnded={handleIntroEnd} // 영상이 끝나면 자동으로 handleIntroEnd 실행
-              className="w-full h-full object-cover"
-            >
               <video
                 autoPlay  /* 자동 재생 */
-                loop      /* 무한 반복 */
                 muted     /* 소리 끄기 (이게 있어야 자동 재생이 작동합니다) */
                 playsInline
+                onEnded={handleIntroEnd} 
                 className="absolute inset-0 w-full h-full object-cover"
-              ></video>
-              <source src="/intro.mp4" type="video/mp4" />
-            </video>
+              >
+                <source src="/intro.mp4" type="video/mp4" />
+              </video>
             <button
               onClick={handleIntroEnd} // 스킵 버튼을 눌러도 handleIntroEnd 실행
               className="absolute bottom-12 right-12 px-5 py-2 bg-black/40 border border-white/10 text-sm tracking-widest hover:bg-white/10"
