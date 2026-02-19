@@ -1,8 +1,8 @@
 import React, { useState,useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import bgImage from './components/bg.webp';
-import bgVideo from './components/bg.webm';
 import voiceFile from './voice.mp3';
+import bgVideo from './bg.webm';
 
 import { Header } from './components/timeline/Header.tsx';
 import { Timeline } from './components/timeline/Timeline.tsx';
@@ -12,6 +12,7 @@ import { BeBdd } from './components/timeline/BeBdd.tsx';
 import { GlobalFooterLogo } from './components/GlobalFooterLogo.tsx';
 
 function App() {
+  
   const [stage, setStage] = useState<'START' | 'INTRO' | 'MAIN'>('START');
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -43,6 +44,8 @@ function App() {
     }
   };
 
+  
+
   return (
     <Router>
       <audio ref={audioRef} src={voiceFile} loop />
@@ -69,6 +72,13 @@ function App() {
               onEnded={handleIntroEnd} // 영상이 끝나면 자동으로 handleIntroEnd 실행
               className="w-full h-full object-cover"
             >
+              <video
+                autoPlay  /* 자동 재생 */
+                loop      /* 무한 반복 */
+                muted     /* 소리 끄기 (이게 있어야 자동 재생이 작동합니다) */
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              ></video>
               <source src="/intro.mp4" type="video/mp4" />
             </video>
             <button
@@ -83,32 +93,32 @@ function App() {
         {/* 3. MAIN STAGE (배경 이미지 적용) */}
         {stage === 'MAIN' && (
           <div 
-              className="relative h-screen w-full overflow-hidden flex flex-col"
-              style={{
-                // 영상이 나오기 전이나 실패했을 때 보여줄 백업 이미지
-                backgroundImage: `url(${bgImage})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                backgroundRepeat: 'no-repeat',
-                backgroundAttachment: 'fixed'
-              }}
+            className="relative h-screen flex flex-col"
+            style={{
+              // public/assets/bg.webp 경로 사용
+              backgroundImage: `url(${bgImage})`,
+              backgroundSize: 'cover',      /* 27인치 화면 꽉 채우기 */
+              backgroundPosition: 'center', /* 중앙 정렬 */
+              backgroundRepeat: 'no-repeat',
+              backgroundAttachment: 'fixed' /* 깊이감 있는 고정 배경 */
+            }}
+          >
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              // 영상이 이미지와 똑같은 방식으로 꽉 채워지도록 설정
+              className="absolute inset-0 w-full h-full object-cover -z-0"
             >
-              {/* 배경 비디오 레이어 */}
-              <video
-                autoPlay
-                loop
-                muted
-                playsInline
-                // 영상이 이미지와 똑같은 방식으로 꽉 채워지도록 설정
-                className="absolute inset-0 w-full h-full object-cover -z-0"
-              >
-                <source src={bgVideo} type="video/webm" />
-              </video>
+              <source src={bgVideo} type="video/webm" />
+            </video>
             <button
               onClick={toggleSound}
               className="fixed bottom-[80px] right-6 z-[100] flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity font-mono text-[13px] tracking-widest"
             >
               <div className={`w-1.5 h-1.5 rounded-full bg-white ${!isMuted ? 'animate-pulse' : 'opacity-30'}`} />
+              <span className="font-pretendard text-[12px] text-white tracking-wider"></span>
               {isMuted ? "SOUND OFF" : "SOUND ON"}
             </button>
             {/* 배경 위에 어두운 오버레이를 깔고 싶다면 아래 div 주석 해제 */}
