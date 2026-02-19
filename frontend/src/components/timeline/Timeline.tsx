@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { TimelineNode } from "./TimelineNode.tsx";
 import { TimelineCaption } from "./TimelineCaption.tsx";
 
@@ -27,6 +27,7 @@ interface TimelineItemData {
 
   };
   coords?: TimelineItemCoords;
+  mCoords? : TimelineItemCoords;
 }
 
 const timelineData: TimelineItemData[] = [
@@ -48,8 +49,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "269px",
       captionHeight: "152px",
       lineTop:"344px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "120px",
+      dotPosition: "top",
+    },
+    mCoords: {
+      yearTop: "252px", 
+      yearLeft: "calc(50% - 14px)",
+      captionTop: "350px",
+      captionLeft: "calc(50% - 269px/2 + 0.5px)",
+      captionWidth: "269px", 
+      captionHeight: "140px",
+      lineTop: "290px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "90px",
       dotPosition: "top",
     }
   },
@@ -60,7 +73,7 @@ const timelineData: TimelineItemData[] = [
     caption: {
       date: "증명의 시간, 왕좌에 새긴 이름",
       title: "Longzhu Gaming",
-      description: "짧은 기회를 압도적 실력으로 잡아채며\n리그 정상에 우뚝 선,가장 화려하고 강렬했던 섬광.",
+      description: "짧은 기회를 압도적 실력으로 잡아채며\n리그 정상에 우뚝 선, 가장 화려하고 강렬했던 섬광.",
       position: "top",
     },
     coords: {
@@ -71,8 +84,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "307px",
       captionHeight: "130px",
       lineTop:"135px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "116px",
+      dotPosition: "bottom",
+    },
+    mCoords: {
+      yearTop: "234px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "25px",
+      captionLeft: "calc(50% - 307px/2)",
+      captionWidth: "307px",
+      captionHeight: "130px",
+      lineTop:"85px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "140px",
       dotPosition: "bottom",
     }
   },
@@ -94,8 +119,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "312px",
       captionHeight: "130px",
       lineTop:"135px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "130px",
+      dotPosition: "bottom",
+    },
+    mCoords: {
+      yearTop: "234px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "25px",
+      captionLeft: "calc(50% - 312px/2)",
+      captionWidth: "312px",
+      captionHeight: "130px",
+      lineTop:"85px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "140px",
       dotPosition: "bottom",
     }
   },
@@ -117,8 +154,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "237px",
       captionHeight: "152px",
       lineTop:"348px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "120px",
+      dotPosition: "top",
+    },
+    mCoords: {
+      yearTop: "252px", 
+      yearLeft: "calc(50% - 14px)",
+      captionTop: "350px",
+      captionLeft: "calc(50% - 269px/2 + 0.5px)",
+      captionWidth: "237px", 
+      captionHeight: "152px",
+      lineTop: "295px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "90px",
       dotPosition: "top",
     }
   },
@@ -140,8 +189,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "309px",
       captionHeight: "130px",
       lineTop:"130px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "130px",
+      dotPosition: "bottom",
+    },
+    mCoords: {
+      yearTop: "234px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "25px",
+      captionLeft: "calc(50% - 309px/2)",
+      captionWidth: "309px",
+      captionHeight: "130px",
+      lineTop:"85px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "140px",
       dotPosition: "bottom",
     }
   },
@@ -163,7 +224,19 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "288px",
       captionHeight: "130px",
       lineTop:"130px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "140px",
+      dotPosition: "bottom",
+    },
+    mCoords: {
+      yearTop: "234px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "25px",
+      captionLeft: "calc(50% - 288px/2 + 0.5px)",
+      captionWidth: "288px",
+      captionHeight: "130px",
+      lineTop:"85px",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "140px",
       dotPosition: "bottom",
     }
@@ -186,8 +259,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "228px",
       captionHeight: "152px",
       lineTop:"152px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "140px",
+      dotPosition: "bottom",
+    },
+    mCoords: {
+      yearTop: "252px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "25px",
+      captionLeft: "calc(50% - 224px/2 - 0.5px)",
+      captionWidth: "228px",
+      captionHeight: "152px",
+      lineTop:"85px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "160px",
       dotPosition: "bottom",
     }
   },
@@ -209,8 +294,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "250px",
       captionHeight: "152px",
       lineTop:"370px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "100px",
+      dotPosition: "top",
+    },
+    mCoords: {
+      yearTop: "234px", 
+      yearLeft: "calc(50% - 14px)",
+      captionTop: "350px",
+      captionLeft: "calc(50% - 250px/2 + 0.5px)",
+      captionWidth: "250px", 
+      captionHeight: "152px",
+      lineTop: "309px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "60px",
       dotPosition: "top",
     }
   },
@@ -232,8 +329,20 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "240px",
       captionHeight: "152px",
       lineTop:"360px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "110px",
+      dotPosition: "top",
+    },
+    mCoords: {
+      yearTop: "240px", 
+      yearLeft: "calc(50% - 14px)",
+      captionTop: "350px",
+      captionLeft: "calc(50% - 240px/2 + 0.5px)",
+      captionWidth: "240px", 
+      captionHeight: "152px",
+      lineTop: "300px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "60px",
       dotPosition: "top",
     }
   },
@@ -255,18 +364,42 @@ const timelineData: TimelineItemData[] = [
       captionWidth: "243px",
       captionHeight: "152px",
       lineTop:"367px",
-      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineLeft: "calc(50% - 0.5px)",
       lineHeight: "100px",
+      dotPosition: "top",
+    },
+    mCoords: {
+      yearTop: "238px", 
+      yearLeft: "calc(50% - 14px)",
+      captionTop: "350px",
+      captionLeft: "calc(50% - 243px/2 + 0.5px)",
+      captionWidth: "243px", 
+      captionHeight: "152px",
+      lineTop: "308px",
+      lineLeft: "calc(50% - 0.5px)",
+      lineHeight: "60px",
       dotPosition: "top",
     }
   },  
 ];
-
 export function Timeline() {
+  const [isMobile, setIsMobile] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeft = useRef(0);
+
+  useEffect(() => {
+    const handleResize = () => {
+      const mobileWidth = window.innerWidth <= 430;
+      const mobileHeight = window.innerHeight <= 750;
+      setIsMobile(mobileWidth || mobileHeight);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const onMouseDown = (e: React.MouseEvent) => {
     isDown.current = true;
@@ -288,44 +421,56 @@ export function Timeline() {
     const walk = e.pageX - startX.current;
     scrollRef.current!.scrollLeft = scrollLeft.current - walk;
   };
+  const totalWidth = isMobile ? "5000px" : "4300px";
 
   return (
-      <section
-        ref={scrollRef}
-        // 1. h-[720px]를 h-screen으로 변경하여 화면 전체 높이를 사용하게 합니다.
-        // 2. flex와 items-center를 추가하여 내부의 큰 div를 세로 중앙에 배치합니다.
-        className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab no-scrollbar flex items-center"
-        onMouseDown={onMouseDown}
-        onMouseUp={onMouseUp}
-        onMouseLeave={onMouseLeave}
-        onMouseMove={onMouseMove}
+    <section
+      ref={scrollRef}
+      className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab no-scrollbar flex items-center"
+      onMouseDown={onMouseDown}
+      onMouseUp={onMouseUp}
+      onMouseLeave={onMouseLeave}
+      onMouseMove={onMouseMove}
+    >
+      <div 
+        className="relative flex items-center" 
+        style={{ 
+          minWidth: isMobile ? "2200px" : "4300px", 
+          height: isMobile ? "600px" : "720px" 
+        }}
       >
-        {/* 전체 타임라인 가로 길이 컨테이너 */}
-        {/* h-full 대신 특정 높이(예: 720px)를 유지하면서 중앙에 떠 있게 합니다. */}
-        <div className="relative min-w-[4300px] h-[720px] flex items-center">
-          
-          {/* 중앙 가로선 (Line 2) - 이제 h-[720px]의 딱 중간에 위치합니다. */}
-          <div className="absolute left-0 right-0 top-1/2 h-0 border-t-[0.5px] border-white/50" />
+        <div 
+                  className="absolute left-0 top-1/2 h-0 border-t-[0.5px] border-white/50" 
+                  style={{width: isMobile ? "3300px" : "4300px" }} 
+                />
+                
+                {/* ✅ 수정 포인트 2: 아래 div 태그 속성 부분에 style을 정확히 포함시킵니다. */}
+                <div 
+                  className={`relative flex items-center ${isMobile ? 'px-[50px] gap-[20px]' : 'px-[100px] gap-[40px]'} left-[14px]`}
+                  style={{ width: totalWidth }} // 여기에 위치해야 합니다.
+                >
+          {timelineData.map((item, index) => {
+            // 변수 선언 로직
+            const currentCoords = isMobile ? (item.mCoords || item.coords) : item.coords;
+            const itemWidth = isMobile ? 300 : 312;
 
-          {/* 타임라인 아이템 컨테이너 */}
-          <div className="relative flex items-center px-[100px] gap-[40px] left-[14px]">
-            {timelineData.map((item, index) => (
+            return (
               <div
                 key={index}
                 className="relative flex items-center justify-center shrink-0"
-                style={{ width: 312, height: 650 }}
+                style={{ width: itemWidth, height: isMobile ? 550 : 650 }}
               >
-                {/* 연도 텍스트 */}
-                {item.coords && (
+                {/* 연도 */}
+                {currentCoords && (
                   <div 
                     style={{
                       position: 'absolute',
-                      top: item.coords.yearTop,
-                      left: item.coords.yearLeft,
+                      top: currentCoords.yearTop,
+                      left: currentCoords.yearLeft,
                       width: '28px',
                       height: '14px',
                       fontFamily: '"Sometype Mono", monospace',
-                      fontSize: '12px',
+                      fontSize: isMobile ? '10px' : '12px',
                       fontWeight: 500,
                       color: '#FFFFFF',
                       display: 'flex',
@@ -339,20 +484,19 @@ export function Timeline() {
                   </div>
                 )}
 
-                {/* 👇 여기에 선과 작은 원(Dot) 코드를 추가하세요 */}
-                {item.coords && item.coords.lineTop && (
+                {/* 선과 점 */}
+                {currentCoords && currentCoords.lineTop && (
                   <div 
                     style={{
                       position: 'absolute',
-                      width: '1px', // 고정
-                      height: item.coords.lineHeight, // 다름
-                      left: item.coords.lineLeft, // 다름
-                      top: item.coords.lineTop, // 다름
-                      backgroundColor: 'rgba(255, 255, 255, 0.5)', // 색상 고정
+                      width: '1px',
+                      height: currentCoords.lineHeight,
+                      left: currentCoords.lineLeft,
+                      top: currentCoords.lineTop,
+                      backgroundColor: 'rgba(255, 255, 255, 0.5)',
                       zIndex: 5
                     }}
                   >
-                    {/* 선 끝에 달린 작은 원 (Dot) */}
                     <div 
                       style={{
                         position: 'absolute',
@@ -362,43 +506,42 @@ export function Timeline() {
                         borderRadius: '50%',
                         left: '0px',
                         transform: 'translateX(-1px)',
-                        // 데이터의 dotPosition에 따라 선의 맨 위 혹은 맨 아래에 붙음
-                        top: item.coords.dotPosition === 'top' ? '-3px' : 'auto',
-                        bottom: item.coords.dotPosition === 'bottom' ? '-3px' : 'auto',
+                        top: currentCoords.dotPosition === 'top' ? '-3px' : 'auto',
+                        bottom: currentCoords.dotPosition === 'bottom' ? '-3px' : 'auto',
                       }}
                     />
                   </div>
                 )}                
 
-                {/* 노드 (중앙 원) */}
-                <TimelineNode 
-                  year="" 
-                  size={item.size} 
-                  videoId={item.videoId} 
-                />
+                {/* 노드 */}
+                <div style={{ transform: isMobile ? 'scale(0.7)' : 'none' }}>
+                  <TimelineNode 
+                    year="" 
+                    size={item.size} 
+                    videoId={item.videoId} 
+                  />
+                </div>
 
-                {/* 캡션 박스 */}
-                {item.caption && item.coords && (
+                {/* 캡션 */}
+                {item.caption && currentCoords && (
                   <div 
                     style={{
                       position: 'absolute',
-                      top: item.coords.captionTop,
-                      left: item.coords.captionLeft,
-                      width: item.coords.captionWidth,
-                      height: item.coords.captionHeight,
+                      top: currentCoords.captionTop,
+                      left: currentCoords.captionLeft,
+                      width: currentCoords.captionWidth,
+                      height: currentCoords.captionHeight,
                       zIndex: 20
                     }}
                   >
                     <TimelineCaption {...item.caption} />
                   </div>
                 )}                
-                                  
-              
-                
               </div>
-            ))}
-          </div>
+            );
+          })}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}
