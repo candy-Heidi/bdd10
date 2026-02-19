@@ -1,6 +1,7 @@
 import React, { useState,useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import bgImage from './components/bg.webp';
+import bgVideo from './components/bg.webm';
 import voiceFile from './voice.mp3';
 
 import { Header } from './components/timeline/Header.tsx';
@@ -82,16 +83,27 @@ function App() {
         {/* 3. MAIN STAGE (배경 이미지 적용) */}
         {stage === 'MAIN' && (
           <div 
-            className="relative h-screen flex flex-col"
-            style={{
-              // public/assets/bg.webp 경로 사용
-              backgroundImage: `url(${bgImage})`,
-              backgroundSize: 'cover',      /* 27인치 화면 꽉 채우기 */
-              backgroundPosition: 'center', /* 중앙 정렬 */
-              backgroundRepeat: 'no-repeat',
-              backgroundAttachment: 'fixed' /* 깊이감 있는 고정 배경 */
-            }}
-          >
+              className="relative h-screen w-full overflow-hidden flex flex-col"
+              style={{
+                // 영상이 나오기 전이나 실패했을 때 보여줄 백업 이미지
+                backgroundImage: `url(${bgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                backgroundAttachment: 'fixed'
+              }}
+            >
+              {/* 배경 비디오 레이어 */}
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
+                // 영상이 이미지와 똑같은 방식으로 꽉 채워지도록 설정
+                className="absolute inset-0 w-full h-full object-cover -z-0"
+              >
+                <source src={bgVideo} type="video/webm" />
+              </video>
             <button
               onClick={toggleSound}
               className="fixed bottom-[80px] right-6 z-[100] flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity font-mono text-[13px] tracking-widest"
