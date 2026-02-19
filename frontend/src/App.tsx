@@ -64,7 +64,8 @@ function App() {
         {stage === 'INTRO' && (
           <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black">
             <video 
-              autoPlay 
+              autoPlay
+              muted
               onEnded={handleIntroEnd} // 영상이 끝나면 자동으로 handleIntroEnd 실행
               className="w-full h-full object-cover"
             >
