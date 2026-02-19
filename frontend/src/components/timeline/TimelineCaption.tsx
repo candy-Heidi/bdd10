@@ -1,72 +1,43 @@
-
 interface TimelineCaptionProps {
-
-  date: string;
-
   title: string;
-
+  date: string; // "점의 시작, 무력했던 신동의 등판" 부분
   description?: string;
-
 }
 
-
-
 export function TimelineCaption({
-
-  date,
-
   title,
-
+  date,
   description,
-
 }: TimelineCaptionProps) {
-
   return (
-
-    <div className="flex flex-col gap-[10px] p-5 bg-white/[0.04] border border-white">
-
-      <div className="flex flex-col gap-[5px]">
-
-        {/* 날짜 배지 (Frame 67) */}
-
-        <div className="bg-white px-[3px] h-3 flex items-center justify-center w-fit">
-
-          <span className="text-[10px] font-['Sometype_Mono'] font-medium text-black leading-[12px]">
-
-            {date}
-
-          </span>
-
-        </div>
-
-       
-
-        {/* 타이틀: whitespace-pre-wrap 추가 */}
-
-        <h3 className="font-pretendard text-[16px] font-bold text-white leading-[19px] whitespace-pre-wrap">
-
+    /* 1. absolute, top, left, width, height 관련 클래스를 모두 제거했습니다. */
+    /* 2. 대신 w-full h-full을 넣어 부모가 정해준 크기에 맞게 채워지도록 합니다. */
+    <div className="w-full min-h-full flex flex-col items-start p-[15px] gap-[12px] bg-white/[0.05] backdrop-blur-[5px]">
+      
+      {/* 상단 영역: 제목과 서브타이틀 박스 */}
+      <div className="flex flex-col items-start gap-[6px] w-full">
+        {/* 타이틀: CJ Entus */}
+        <h3 className="font-pretendard text-[17px] font-bold text-white leading-[19px] flex items-center">
           {title}
-
         </h3>
 
+        {/* 서브타이틀 박스 (흰색 배경 + 검은 글씨) */}
+        {/* h-[13px] 고정값 때문에 글자가 잘린다면 h-auto로 바꾸는 것이 좋습니다. */}
+        <div className="bg-white px-[4px] py-[2px] w-fit max-w-full flex items-center justify-start">
+          <span className="font-pretendard text-[14px] font-semibold text-black leading-none">
+            {date}
+          </span>
+        </div>
       </div>
 
-
-
-      {/* 설명 (Frame 60): whitespace-pre-wrap 추가 */}
-
+      {/* 설명 영역 (Frame 60) */}
       {description && (
-
-        <p className="font-pretendard text-[12px] font-medium text-white leading-[160%] whitespace-pre-wrap">
-
-          {description}
-
-        </p>
-
+        <div className="flex flex-col items-start gap-[5px] w-full">
+          <p className="font-pretendard text-[14px] font-medium text-white leading-[1.5] whitespace-pre-wrap">
+            {description}
+          </p>
+        </div>
       )}
-
     </div>
-
   );
-
 }

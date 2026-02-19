@@ -64,8 +64,7 @@ function App() {
         {stage === 'INTRO' && (
           <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black">
             <video 
-              autoPlay
-              muted
+              autoPlay 
               onEnded={handleIntroEnd} // 영상이 끝나면 자동으로 handleIntroEnd 실행
               className="w-full h-full object-cover"
             >
@@ -95,7 +94,7 @@ function App() {
           >
             <button
               onClick={toggleSound}
-              className="fixed top-8 right-10 z-[100] flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity font-mono text-[10px] tracking-widest"
+              className="fixed bottom-[80px] right-6 z-[100] flex items-center gap-2 opacity-50 hover:opacity-100 transition-opacity font-mono text-[13px] tracking-widest"
             >
               <div className={`w-1.5 h-1.5 rounded-full bg-white ${!isMuted ? 'animate-pulse' : 'opacity-30'}`} />
               {isMuted ? "SOUND OFF" : "SOUND ON"}

@@ -9,12 +9,16 @@ interface TimelineItemCoords {
   captionLeft?: string;
   captionWidth?: string;
   captionHeight?: string;
+  lineTop?:string;
+  lineLeft?: string; // width 2px의 절반 보정
+  lineHeight?: string;
+  dotPosition?: "top" | "bottom";
 }
 
 interface TimelineItemData {
   year: string;
   videoId? : string;
-  size: "xsmall" |"small" | "medium" | "large" | "xlarge";
+  size: "a" |"b" |"c" |"d" |"e" |"f" |"g" |"h" |"i" |"j" ;
   caption?: {
     date: string;
     title: string;
@@ -28,212 +32,234 @@ interface TimelineItemData {
 const timelineData: TimelineItemData[] = [
   {
     year: "2016",
-    size: "small",
+    size: "a",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "16.03.02",
+      date: "점의 시작, 무력했던 신동의 등판",
       title: "CJ Entus",
       description: "기대 속에 나타난 유망주,\n그러나 기울어진 팀의 궤적을 홀로 바꾸기엔\n역부족이었던 첫 번째 점.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "118px",
-      captionTop: "363px",
-      captionLeft: "0px",
-      captionWidth: "124px",
-      captionHeight: "105px",
+      yearTop: "299px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "457.5px",
+      captionLeft: "calc(50% - 269px/2 + 0.5px)",
+      captionWidth: "269px",
+      captionHeight: "152px",
+      lineTop:"344px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "120px",
+      dotPosition: "top",
     }
   },
   {
     year: "2017",
-    size: "xlarge",
+    size: "b",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "17.03.02",
-      title: "KING-ZONE\nDragonX",
-      description: "짧은 기회를 압도적 실력으로\n잡아채며 리그 정상에 우뚝 선,\n가장 화려하고 강렬했던 섬광.",
+      date: "증명의 시간, 왕좌에 새긴 이름",
+      title: "Longzhu Gaming",
+      description: "짧은 기회를 압도적 실력으로 잡아채며\n리그 정상에 우뚝 선,가장 화려하고 강렬했던 섬광.",
       position: "top",
     },
     coords: {
-      yearTop: "215px",
-      yearLeft: "135px",
-      captionTop: "31px",
-      captionLeft: "0px",
-      captionWidth: "130px",
-      captionHeight: "124px",
+      yearTop: "266px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "11.5px",
+      captionLeft: "calc(50% - 307px/2)",
+      captionWidth: "307px",
+      captionHeight: "130px",
+      lineTop:"135px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "116px",
+      dotPosition: "bottom",
     }
   },
   {
     year: "2018",
-    size: "large",
+    size: "c",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "18.03.02",
-      title: "KING-ZONE\nDragonX",
-      description: "연속 우승과 국제 무대의 시련 속에서도,\n무너지는 팀을 끝까지 지탱하던\n고독한 상수의 가치.",
+      date: "지배와 균형, 흔들리는 팀의 중심축",
+      title: "KING-ZONE DragonX",
+      description: "연속 우승과 국제 무대의 시련 속에서도\n무너지는 팀을 끝까지 지탱하던 고독한 상수의 가치.",
       position: "top",
     },
     coords: {
-      yearTop: "215px",
-      yearLeft: "135px",
-      captionTop: "31px",
-      captionLeft: "0px",
-      captionWidth: "130px",
-      captionHeight: "124px",
+      yearTop: "278px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "11.5px",
+      captionLeft: "calc(50% - 312px/2)",
+      captionWidth: "312px",
+      captionHeight: "130px",
+      lineTop:"135px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "130px",
+      dotPosition: "bottom",
     }
   },
   {
     year: "2019",
-    size: "medium",
+    size: "d",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "19.03.02",
+      date: "낭떠러지의 사투, 살아남아야 했던 해",
       title: "kt Rolster",
-      description: "명성과 거리가 먼 잔혹한 현실,\n승강전이라는 벼랑 끝에서 생존을 위해\n모든 것을 쏟아부은 시기.",
+      description: "명성과 거리가 먼 잔혹한 현실,\n승강전이라는 벼랑 끝에서\n생존을 위해 모든 것을 쏟아부은 시기.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "170px",
-      captionTop: "370px",
-      captionLeft: "0px",
-      captionWidth: "114px",
-      captionHeight: "105px",
+      yearTop: "294px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "457.5px",
+      captionLeft: "calc(50% - 236px/2 + 0.5px)",
+      captionWidth: "237px",
+      captionHeight: "152px",
+      lineTop:"348px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "120px",
+      dotPosition: "top",
     }
   },
   {
     year: "2020",
-    size: "xlarge",
+    size: "e",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "20.03.02",
-      title: "Gen.G",
-      description: "지표와 성적은 남았으나\n완벽한 마침표를 찍지 못한,\n스스로를 향한 의문부호를 지워내던 과정.",
+      date: "불완전한 비상, 엇갈린 평가의 기록",
+      title: "Gen.G Esports",
+      description: "지표와 성적은 남았으나 완벽한 마침표를 찍지 못한,\n스스로를 향한 의문 부호를 지워 내던 과정.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "52px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "93px",
-      captionHeight: "105px",
+      yearTop: "269px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "11.5px",
+      captionLeft: "calc(50% - 288px/2 + 0.5px)",
+      captionWidth: "309px",
+      captionHeight: "130px",
+      lineTop:"130px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "130px",
+      dotPosition: "bottom",
     }
   },
   {
     year: "2021",
-    size: "large",
+    size: "f",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "21.03.02",
-      title: "Gen.G",
-      description: "위기마다 시선이 모이는\n 절대적 신뢰의 표상,\n월즈 무대에서 다시 한번 증명한 최상위의 기량.",
+      date: "클래스의 부활, 다시 세계의 중심으로",
+      title: "Gen.G Esports",
+      description: "위기마다 시선이 모이는 절대적 신뢰의 표상.\n월즈 무대에서 다시 한번 증명한 최상위의 기량.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "52px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "93px",
-      captionHeight: "105px",
+      yearTop: "278px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "11.5px",
+      captionLeft: "calc(50% - 288px/2 + 0.5px)",
+      captionWidth: "288px",
+      captionHeight: "130px",
+      lineTop:"130px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "140px",
+      dotPosition: "bottom",
     }
   },
   {
     year: "2022",
-    size: "xsmall",
+    size: "g",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "22.03.02",
-      title: "NS Redforce",
-      description: "낯선 환경과 겹쳐진 부진,\n커리어 사상 가장 낮은 곳에서\n다음 도약을 위해 숨을 죽였던 시간.",
+      date: "궤도 이탈, 가장 깊고 어두웠던 심연",
+      title: "NS RedForce",
+      description: "낯선 환경과 겹쳐진 부진.\n커리어 사상 가장 낮은 곳에서\n다음 도약을 위해 숨을 죽였던 시간.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "52px",
-      captionTop: "430px",
-      captionLeft: "0px",
-      captionWidth: "204px",
-      captionHeight: "105px",
+      yearTop: "302px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "11.5px",
+      captionLeft: "calc(50% - 224px/2 - 0.5px)",
+      captionWidth: "228px",
+      captionHeight: "152px",
+      lineTop:"152px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "140px",
+      dotPosition: "bottom",
     }
   },
   {
     year: "2023",
-    size: "small",
+    size: "h",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "23.03.02",
+      date: "화려한 귀환, 다시 타오르는 황금기",
       title: "kt Rolster",
-      description: "신뢰를 갖고 다시 찾아준 팀에서\n퍼스트 미드의 위엄을 되찾으며\n보여준 압도적인 퍼포먼스.",
+      description: "서로에 대한 신뢰로 다시 만난 Bdd와 kt.\n퍼스트 미드의 위엄을 되찾으며 보여 준 압도적인 퍼포먼스.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "118px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "196px",
-      captionHeight: "143px",
+      yearTop: "271px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "457.5px",
+      captionLeft: "calc(50% - 250px/2 + 0.5px)",
+      captionWidth: "250px",
+      captionHeight: "152px",
+      lineTop:"370px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "100px",
+      dotPosition: "top",
     }
   },
   {
     year: "2024",
-    size: "small",
+    size: "i",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "24.03.02",
+      date: "낭만과 현실 사이, 꺾이지 않는 구심점",
       title: "kt Rolster",
-      description: "불확실한 팀의 흐름 속에서도\n스스로 캐리력을 증명하며,\n다시 태어날 우주의 서막을 알린 해.",
+      description: "불확실한 팀의 흐름 속에서도 스스로 캐리력을 증명하며\n다시 태어날 우주의 서막을 알린 해.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "118px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "225px",
-      captionHeight: "162px",
+      yearTop: "282px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "457.5px",
+      captionLeft: "calc(50% - 240px/2 + 0.5px)",
+      captionWidth: "240px",
+      captionHeight: "152px",
+      lineTop:"360px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "110px",
+      dotPosition: "top",
     }
   },
   {
     year: "2025",
-    size: "small",
+    size: "j",
     videoId: "YYojimRLvkw",
     caption: {
-      date: "25.03.02",
+      date: "10년의 염원, 한계를 돌파한 우주의 끝",
       title: "kt Rolster",
-      description: "간절함으로 빚어낸 월즈 진출과 준우승,\n멈추지 않는 도전 끝에 도달한\n가장 높은 고도의 궤적.",
+      description: "간절함으로 빚어낸 월즈 진출과 준우승.\n멈추지 않는 도전 끝에 도달한\n가장 높은 고도의 궤적.",
       position: "bottom",
     },
     coords: {
-      yearTop: "292px",
-      yearLeft: "118px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "199px",
-      captionHeight: "124px",
+      yearTop: "274px",
+      yearLeft: "calc(50% - 28px/2)",
+      captionTop: "457.5px",
+      captionLeft: "calc(50% - 243px/2 + 0.5px)",
+      captionWidth: "243px",
+      captionHeight: "152px",
+      lineTop:"367px",
+      lineLeft: "calc(50% - 2px/2 - 0px)",
+      lineHeight: "100px",
+      dotPosition: "top",
     }
   },  
-  {
-    year: "2026",
-    size: "xsmall",
-    caption: {
-      date: "26.03.02",
-      title: "kt Rolster",
-      description: "To Be Contiune.....",
-      position: "bottom",
-    },
-    coords: {
-      yearTop: "292px",
-      yearLeft: "118px",
-      captionTop: "355px",
-      captionLeft: "0px",
-      captionWidth: "145px",
-      captionHeight: "124px",
-    }
-  },
 ];
 
 export function Timeline() {
@@ -282,12 +308,12 @@ export function Timeline() {
           <div className="absolute left-0 right-0 top-1/2 h-0 border-t-[0.5px] border-white/50" />
 
           {/* 타임라인 아이템 컨테이너 */}
-          <div className="relative flex items-center px-[100px] gap-[80px] left-[14px]">
+          <div className="relative flex items-center px-[100px] gap-[40px] left-[14px]">
             {timelineData.map((item, index) => (
               <div
                 key={index}
                 className="relative flex items-center justify-center shrink-0"
-                style={{ width: 300, height: 650 }}
+                style={{ width: 312, height: 650 }}
               >
                 {/* 연도 텍스트 */}
                 {item.coords && (
@@ -298,7 +324,7 @@ export function Timeline() {
                       left: item.coords.yearLeft,
                       width: '28px',
                       height: '14px',
-                      fontFamily: 'Sometype Mono',
+                      fontFamily: '"Sometype Mono", monospace',
                       fontSize: '12px',
                       fontWeight: 500,
                       color: '#FFFFFF',
@@ -310,6 +336,37 @@ export function Timeline() {
                     }}
                   >
                     {item.year}
+                  </div>
+                )}
+
+                {/* 👇 여기에 선과 작은 원(Dot) 코드를 추가하세요 */}
+                {item.coords && item.coords.lineTop && (
+                  <div 
+                    style={{
+                      position: 'absolute',
+                      width: '1px', // 고정
+                      height: item.coords.lineHeight, // 다름
+                      left: item.coords.lineLeft, // 다름
+                      top: item.coords.lineTop, // 다름
+                      backgroundColor: 'rgba(255, 255, 255, 0.5)', // 색상 고정
+                      zIndex: 5
+                    }}
+                  >
+                    {/* 선 끝에 달린 작은 원 (Dot) */}
+                    <div 
+                      style={{
+                        position: 'absolute',
+                        width: '3px',
+                        height: '3px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        borderRadius: '50%',
+                        left: '0px',
+                        transform: 'translateX(-1px)',
+                        // 데이터의 dotPosition에 따라 선의 맨 위 혹은 맨 아래에 붙음
+                        top: item.coords.dotPosition === 'top' ? '-3px' : 'auto',
+                        bottom: item.coords.dotPosition === 'bottom' ? '-3px' : 'auto',
+                      }}
+                    />
                   </div>
                 )}                
 
@@ -336,33 +393,8 @@ export function Timeline() {
                   </div>
                 )}                
                                   
-                {/* 2016년 전용 꺾인 선 */}
-                {item.year === "2016" && (
-                  <div 
-                    style={{
-                      position: 'absolute',
-                      width: '28px',
-                      height: '71px',
-                      left: '123px',
-                      top: '343px',
-                      borderBottom: '0.5px solid #FFFFFF',
-                      borderRight: '0.5px solid #FFFFFF',
-                      pointerEvents: 'none'
-                    }} 
-                  >
-                    <div 
-                      style={{
-                        position: 'absolute',
-                        top: '-2px',
-                        right: '-2.5px',
-                        width: '4px',
-                        height: '4px',
-                        backgroundColor: '#FFFFFF',
-                        borderRadius: '50%'
-                      }}
-                    />
-                  </div>
-                )}
+              
+                
               </div>
             ))}
           </div>

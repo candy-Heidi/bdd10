@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        'mono-timeline': ['Space Mono', 'monospace','Sometype Mono'],
+        'pretendard': ['Pretendard', 'system-ui', 'sans-serif'],
+      },
       colors: {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
@@ -29,10 +33,7 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
-      fontFamily: {
-        'mono-timeline': ['"Space Mono"', 'monospace'],
-        pretendard: ['Pretendard', 'system-ui', 'sans-serif'],
-      },
+
     },
   },
   plugins: [],
