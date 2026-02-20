@@ -477,7 +477,7 @@ export function Timeline() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       pointerEvents: 'none',
-                      zIndex: 20
+                      
                     }}
                   >
                     {item.year}
@@ -494,7 +494,7 @@ export function Timeline() {
                       left: currentCoords.lineLeft,
                       top: currentCoords.lineTop,
                       backgroundColor: 'rgba(255, 255, 255, 0.5)',
-                      zIndex: 5
+                      
                     }}
                   >
                     <div 
@@ -531,7 +531,7 @@ export function Timeline() {
                       left: currentCoords.captionLeft,
                       width: currentCoords.captionWidth,
                       height: currentCoords.captionHeight,
-                      zIndex: 20
+                      
                     }}
                   >
                     <TimelineCaption {...item.caption} />
