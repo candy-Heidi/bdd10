@@ -34,7 +34,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2016",
     size: "a",
-    videoId: "YYojimRLvkw",
+    videoId: "AibRsxeZIHI",
     caption: {
       date: "점의 시작, 무력했던 신동의 등판",
       title: "CJ Entus",
@@ -69,7 +69,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2017",
     size: "b",
-    videoId: "YYojimRLvkw",
+    videoId: "euJ9PLm3Su4",
     caption: {
       date: "증명의 시간, 왕좌에 새긴 이름",
       title: "Longzhu Gaming",
@@ -104,7 +104,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2018",
     size: "c",
-    videoId: "YYojimRLvkw",
+    videoId: "dopfatH5PbY",
     caption: {
       date: "지배와 균형, 흔들리는 팀의 중심축",
       title: "KING-ZONE DragonX",
@@ -139,7 +139,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2019",
     size: "d",
-    videoId: "YYojimRLvkw",
+    videoId: "GRNoagUEodA",
     caption: {
       date: "낭떠러지의 사투, 살아남아야 했던 해",
       title: "kt Rolster",
@@ -174,7 +174,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2020",
     size: "e",
-    videoId: "YYojimRLvkw",
+    videoId: "TiR2MFhhSi4",
     caption: {
       date: "불완전한 비상, 엇갈린 평가의 기록",
       title: "Gen.G Esports",
@@ -209,7 +209,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2021",
     size: "f",
-    videoId: "YYojimRLvkw",
+    videoId: "fDrQj8d1aXE",
     caption: {
       date: "클래스의 부활, 다시 세계의 중심으로",
       title: "Gen.G Esports",
@@ -244,7 +244,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2022",
     size: "g",
-    videoId: "YYojimRLvkw",
+    videoId: "tiuXnOf_vGw",
     caption: {
       date: "궤도 이탈, 가장 깊고 어두웠던 심연",
       title: "NS RedForce",
@@ -279,7 +279,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2023",
     size: "h",
-    videoId: "YYojimRLvkw",
+    videoId: "oN6qH5Y225Y",
     caption: {
       date: "화려한 귀환, 다시 타오르는 황금기",
       title: "kt Rolster",
@@ -314,7 +314,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2024",
     size: "i",
-    videoId: "YYojimRLvkw",
+    videoId: "bi8d8SQnIoc",
     caption: {
       date: "낭만과 현실 사이, 꺾이지 않는 구심점",
       title: "kt Rolster",
@@ -349,7 +349,7 @@ const timelineData: TimelineItemData[] = [
   {
     year: "2025",
     size: "j",
-    videoId: "YYojimRLvkw",
+    videoId: "9XC0-DMi8xM",
     caption: {
       date: "10년의 염원, 한계를 돌파한 우주의 끝",
       title: "kt Rolster",
