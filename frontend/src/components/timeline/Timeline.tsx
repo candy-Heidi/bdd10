@@ -426,7 +426,7 @@ export function Timeline() {
   return (
     <section
       ref={scrollRef}
-      className="relative w-full h-screen overflow-x-auto overflow-y-hidden cursor-grab no-scrollbar flex items-center"
+      className="relative w-full h-screen overflow-x-auto overflow-y-hidden no-scrollbar flex items-center"
       onMouseDown={onMouseDown}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseLeave}
