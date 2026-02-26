@@ -150,8 +150,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "294px",
       yearLeft: "calc(50% - 28px/2)",
       captionTop: "457.5px",
-      captionLeft: "calc(50% - 236px/2 + 0.5px)",
-      captionWidth: "237px",
+      captionLeft: "calc(50% - 238px/2 + 0.5px)",
+      captionWidth: "238px",
       captionHeight: "152px",
       lineTop:"348px",
       lineLeft: "calc(50% - 0.5px)",
@@ -162,8 +162,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "252px", 
       yearLeft: "calc(50% - 14px)",
       captionTop: "350px",
-      captionLeft: "calc(50% - 269px/2 + 0.5px)",
-      captionWidth: "237px", 
+      captionLeft: "calc(50% - 238px/2 + 0.5px)",
+      captionWidth: "238px", 
       captionHeight: "152px",
       lineTop: "295px",
       lineLeft: "calc(50% - 0.5px)",
@@ -255,8 +255,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "302px",
       yearLeft: "calc(50% - 28px/2)",
       captionTop: "11.5px",
-      captionLeft: "calc(50% - 224px/2 - 0.5px)",
-      captionWidth: "228px",
+      captionLeft: "calc(50% - 229px/2 - 0.5px)",
+      captionWidth: "229px",
       captionHeight: "152px",
       lineTop:"152px",
       lineLeft: "calc(50% - 0.5px)",
@@ -267,8 +267,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "252px",
       yearLeft: "calc(50% - 28px/2)",
       captionTop: "25px",
-      captionLeft: "calc(50% - 224px/2 - 0.5px)",
-      captionWidth: "228px",
+      captionLeft: "calc(50% - 229px/2 - 0.5px)",
+      captionWidth: "229px",
       captionHeight: "152px",
       lineTop:"85px",
       lineLeft: "calc(50% - 0.5px)",
@@ -325,8 +325,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "282px",
       yearLeft: "calc(50% - 28px/2)",
       captionTop: "457.5px",
-      captionLeft: "calc(50% - 240px/2 + 0.5px)",
-      captionWidth: "240px",
+      captionLeft: "calc(50% - 241px/2 + 0.5px)",
+      captionWidth: "241px",
       captionHeight: "152px",
       lineTop:"360px",
       lineLeft: "calc(50% - 0.5px)",
@@ -337,8 +337,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "240px", 
       yearLeft: "calc(50% - 14px)",
       captionTop: "350px",
-      captionLeft: "calc(50% - 240px/2 + 0.5px)",
-      captionWidth: "240px", 
+      captionLeft: "calc(50% - 241px/2 + 0.5px)",
+      captionWidth: "241px", 
       captionHeight: "152px",
       lineTop: "300px",
       lineLeft: "calc(50% - 0.5px)",
@@ -360,8 +360,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "274px",
       yearLeft: "calc(50% - 28px/2)",
       captionTop: "457.5px",
-      captionLeft: "calc(50% - 243px/2 + 0.5px)",
-      captionWidth: "243px",
+      captionLeft: "calc(50% - 244px/2 + 0.5px)",
+      captionWidth: "244px",
       captionHeight: "152px",
       lineTop:"367px",
       lineLeft: "calc(50% - 0.5px)",
@@ -372,8 +372,8 @@ const timelineData: TimelineItemData[] = [
       yearTop: "238px", 
       yearLeft: "calc(50% - 14px)",
       captionTop: "350px",
-      captionLeft: "calc(50% - 243px/2 + 0.5px)",
-      captionWidth: "243px", 
+      captionLeft: "calc(50% - 244px/2 + 0.5px)",
+      captionWidth: "244px", 
       captionHeight: "152px",
       lineTop: "308px",
       lineLeft: "calc(50% - 0.5px)",
@@ -421,7 +421,7 @@ export function Timeline() {
     const walk = e.pageX - startX.current;
     scrollRef.current!.scrollLeft = scrollLeft.current - walk;
   };
-  const totalWidth = isMobile ? "5000px" : "4300px";
+  const totalWidth = isMobile ? "5000px" : "3500px";
 
   return (
     <section
@@ -435,13 +435,13 @@ export function Timeline() {
       <div 
         className="relative flex items-center" 
         style={{ 
-          minWidth: isMobile ? "2200px" : "4300px", 
+          minWidth: isMobile ? "2200px" : totalWidth, 
           height: isMobile ? "600px" : "720px" 
         }}
       >
         <div 
                   className="absolute left-0 top-1/2 h-0 border-t-[0.5px] border-white/50" 
-                  style={{width: isMobile ? "3300px" : "4300px" }} 
+                  style={{width: isMobile ? "3300px" : "3800px" }} 
                 />
                 
                 {/* ✅ 수정 포인트 2: 아래 div 태그 속성 부분에 style을 정확히 포함시킵니다. */}

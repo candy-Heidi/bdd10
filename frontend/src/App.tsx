@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import bgImage from './components/bg.webp';
 import voiceFile from './voice.mp3';
 import bgVideo from './bg.webm';
+import './App.css';
+import cursorImg from './cursor_shadow2.cur';
 
 import { Header } from './components/timeline/Header.tsx';
 import { Timeline } from './components/timeline/Timeline.tsx';
@@ -49,7 +51,10 @@ function App() {
   return (
     <Router>
       <audio ref={audioRef} src={voiceFile} loop />
-      <div className="min-h-screen bg-[#050505] text-white font-pretendard">
+      <div 
+      className="min-h-screen bg-[#050505] text-white font-pretendard"
+      style={{ cursor: `url(${cursorImg}), auto` }} // 여기에 추가!
+    >
         
 
         {/* 1. START STAGE */}

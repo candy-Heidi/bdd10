@@ -17,14 +17,14 @@ export function TimelineCaption({
       {/* 상단 영역: 제목과 서브타이틀 박스 */}
       <div className="flex flex-col items-start gap-[6px] w-full">
         {/* 타이틀: CJ Entus */}
-        <h3 className="font-pretendard text-[17px] font-bold text-white leading-[19px] flex items-center">
+        <h3 className="font-pretendard text-[17px] font-medium text-white leading-[19px] flex items-center">
           {title}
         </h3>
 
         {/* 서브타이틀 박스 (흰색 배경 + 검은 글씨) */}
         {/* h-[13px] 고정값 때문에 글자가 잘린다면 h-auto로 바꾸는 것이 좋습니다. */}
         <div className="bg-white px-[4px] py-[2px] w-fit max-w-full flex items-center justify-start">
-          <span className="font-pretendard text-[14px] font-semibold text-black leading-none">
+          <span className="font-pretendard text-[14px] font-regular text-black leading-none">
             {date}
           </span>
         </div>
@@ -33,7 +33,7 @@ export function TimelineCaption({
       {/* 설명 영역 (Frame 60) */}
       {description && (
         <div className="flex flex-col items-start gap-[5px] w-full">
-          <p className="font-pretendard text-[14px] font-medium text-white leading-[1.5] whitespace-pre-wrap">
+          <p className="font-pretendard text-[14px] font-light text-white leading-[1.5] whitespace-pre-wrap">
             {description}
           </p>
         </div>
